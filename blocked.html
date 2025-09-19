@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Blocked — Stay Focused</title>
+    <style>
+      /* Gradient Background */
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: #fff;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        overflow: hidden;
+      }
+
+      /* Floating Particles */
+      .particle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        animation: float 10s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0) scale(1); opacity: 0.6; }
+        50% { transform: translateY(-50px) scale(1.2); opacity: 1; }
+        100% { transform: translateY(0) scale(1); opacity: 0.6; }
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+
+      p {
+        font-size: 16px;
+        margin: 8px 0;
+        color: #f1f1f1;
+        max-width: 500px;
+      }
+
+      .quote {
+        margin-top: 20px;
+        font-size: 18px;
+        font-style: italic;
+        color: #ffeb99;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        animation: fadeIn 1.2s ease;
+      }
+
+      /* Subtle fade-in animation */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      h1, p {
+        animation: fadeIn 1s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Particles -->
+    <div class="particle" style="width:20px; height:20px; top:10%; left:15%; animation-duration: 12s;"></div>
+    <div class="particle" style="width:15px; height:15px; top:30%; left:70%; animation-duration: 8s;"></div>
+    <div class="particle" style="width:25px; height:25px; top:60%; left:40%; animation-duration: 14s;"></div>
+    <div class="particle" style="width:18px; height:18px; top:80%; left:20%; animation-duration: 10s;"></div>
+    <div class="particle" style="width:12px; height:12px; top:50%; left:85%; animation-duration: 9s;"></div>
+
+    <!-- Blocked Content -->
+    <h1>🚫 Blocked — Stay Focused!</h1>
+    <p>This site is blocked by <strong>Focus Blocker</strong> while your session is active.</p>
+
+    <!-- Dynamic Quote -->
+    <div class="quote" id="quote"></div>
+
+    <script>
+      // Motivational quotes array
+      const quotes = [
+        "Stay focused, the results will follow.",
+        "Discipline is the bridge between goals and accomplishment.",
+        "Small steps every day lead to big results.",
+        "Your future self will thank you for staying focused today.",
+        "Don’t watch the clock; do what it does. Keep going.",
+        "Focus on progress, not perfection.",
+        "Every minute you stay focused takes you closer to success."
+      ];
+
+      // Pick a random quote
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+      // Display it
+      document.getElementById("quote").textContent = randomQuote;
+
+      function openExtension() {
+        window.open(chrome.runtime.getURL('options.html'));
+      }
+    </script>
+  </body>
+</html>

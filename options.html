@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Focus Blocker — Options</title>
+    <style>
+      /* Background with gradient */
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 40px 20px;
+        color: #333;
+      }
+
+      /* Card container */
+      .container {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        padding: 30px;
+        width: 100%;
+        max-width: 700px;
+        animation: fadeIn 0.8s ease-in-out;
+      }
+
+      h2, h3 {
+        text-align: center;
+        color: #444;
+      }
+
+      p {
+        font-size: 15px;
+        color: #555;
+      }
+
+      /* Input and button styling */
+      .input-group {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      input[type="text"] {
+        flex: 1;
+        padding: 12px 14px;
+        font-size: 15px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        outline: none;
+        transition: 0.3s;
+      }
+
+      input[type="text"]:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 8px rgba(102,126,234,0.5);
+      }
+
+      button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border: none;
+        color: #fff;
+        padding: 12px 18px;
+        margin-left: 10px;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      }
+
+      /* List styling */
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: #f7f7f7;
+        padding: 10px 14px;
+        margin: 8px 0;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+      }
+
+      li:hover {
+        background: #eaeaea;
+        transform: translateX(3px);
+      }
+
+      li button {
+        background: #ff5f6d;
+        background: linear-gradient(45deg, #ff5f6d, #ffc371);
+        padding: 6px 12px;
+        font-size: 13px;
+        margin-left: 10px;
+      }
+
+      small {
+        color: #777;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🚫 Focus Blocker</h2>
+      <p style="text-align:center;">
+        Enter domains or url filters (examples: <code>facebook.com</code>, <code>youtube.com/watch</code>, <code>||instagram.com</code>).
+      </p>
+
+      <div class="input-group">
+        <input id="siteInput" type="text" placeholder="e.g. facebook.com or *.facebook.com/*" />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <h3>Current List</h3>
+      <ul id="sitesList"></ul>
+
+      <hr/>
+
+      <h3>Notes</h3>
+      <p><small>Rules only take effect when you press "Start Blocking" from the popup. You can remove individual entries here.</small></p>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
